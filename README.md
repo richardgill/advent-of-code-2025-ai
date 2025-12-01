@@ -20,20 +20,18 @@ See [.claude/commands/](.claude/commands/) for command definitions.
 
 ### Prompt for `/solve-day <day>` command
 
-1. **Prep** (if input doesn't exist)
-   - `./scripts/download-input.sh <day>`
-   - `./scripts/read-puzzle.sh <day>`
+1. Run /prep-day if input doesn't exist
+2. Run /solve-part for part 1
+3. Run /solve-part for part 2
 
-2. **Solve Part 1**
-   - Create example files from puzzle examples
-   - Implement solution
-   - `./scripts/check-answer.sh <day> 1 <answer>`
-   - Review solution for readability
-   - `bun local-ci` and fix issues
+#### /prep-day
 
-3. **Solve Part 2**
-   - Create example files from puzzle examples
-   - Implement solution
-   - `./scripts/check-answer.sh <day> 2 <answer>`
-   - Review solution for readability
-   - `bun local-ci` and fix issues
+Run `./scripts/download-input.sh <day>` then `./scripts/read-puzzle.sh <day>`
+
+#### /solve-part
+
+Use TodoWrite to create and track progress on these tasks, updating status as each step completes:
+1. Run /prep-day if input doesn't exist
+2. Solve the part per CLAUDE.md approach (create example files, implement solution). Check if answer is correct: `./scripts/check-answer.sh <day> <part> <answer>`
+3. Review solution for readability without compromising approach / performance, add minimal comments for non-obvious code
+4. Run `bun local-ci` and fix any issues
