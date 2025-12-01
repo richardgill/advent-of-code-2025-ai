@@ -1,3 +1,9 @@
+## Approach
+
+Be persistent and solve problems autonomously without human intervention. If a solution doesn't work, keep trying different approaches. Debug failures, fix errors, and iterate until the problem is solved. Don't give up or ask for help unless truly stuck after exhausting multiple strategies.
+
+## Runtime
+
 Use Bun instead of Node.js.
 
 - `bun <file>` to run a file
