@@ -21,19 +21,19 @@ See [.claude/commands/](.claude/commands/) for command definitions.
 ### Prompt for `/solve-day <day>` command
 
 1. **Prep** (if input doesn't exist)
-   - `./scripts/download-input.sh <year> <day>`
-   - `./scripts/read-puzzle.sh <year> <day>`
+   - `./scripts/download-input.sh <day>`
+   - `./scripts/read-puzzle.sh <day>`
 
 2. **Solve Part 1**
    - Create example files from puzzle examples
    - Implement solution
-   - `./scripts/check-answer.sh <year> <day> 1 <answer>`
+   - `./scripts/check-answer.sh <day> 1 <answer>`
    - Review solution for readability
    - `bun local-ci` and fix issues
 
 3. **Solve Part 2**
    - Create example files from puzzle examples
    - Implement solution
-   - `./scripts/check-answer.sh <year> <day> 2 <answer>`
+   - `./scripts/check-answer.sh <day> 2 <answer>`
    - Review solution for readability
    - `bun local-ci` and fix issues
