@@ -1,6 +1,3 @@
-## Approach
-
-Be persistent and solve problems autonomously without human intervention. If a solution doesn't work, keep trying different approaches. Debug failures, fix errors, and iterate until the problem is solved. Don't give up or ask for help unless truly stuck after exhausting multiple strategies.
 
 ## Runtime
 
@@ -11,20 +8,20 @@ Use Bun instead of Node.js.
 
 Part 1 and part 2 solutions are in separate folders (e.g., `src/days/01.1/`, `src/days/01.2/`).
 
-Problems: https://adventofcode.com/2025/day/{day}. Read the problem first. Solve part 1 and part 2 separately. Create example1.txt/example2.txt from the problem's examples. I will provide input.txt.
 
-## aoc-cli
+## Approach for solving
 
-Download puzzles and submit answers via `aoc` (installed via mise).
+1. Download the input e.g. `./scripts/download-input.sh 2025 1`
+2. Read the puzzle `./scripts/read-puzzle.sh 2025 1`
+3. Solve day 1.
+4. Confirm answer is correct: `./scripts/submit-answer.sh <year> <day> <part> <answer>`
+5. Run `bun local-ci` and fix the code.
 
-```bash
-# Read puzzle directly in terminal
-./scripts/read-puzzle.sh 2025 1
+Then solve day 2 using steps 3-5.
 
-# Download input to both part 1 and part 2 folders
-./scripts/download-input.sh 2025 1
+Solve part 1 and part 2 separately. 
 
-# Submit answer (part 1 or 2)
-aoc submit -d 1 -y 2025 1 <answer>
-aoc submit -d 1 -y 2025 2 <answer>
-```
+Create example1.txt/example2.txt from the problem's examples.
+
+Be persistent and solve problems autonomously without human intervention. If a solution doesn't work, keep trying different approaches. Debug failures, fix errors, and iterate until the problem is solved. Don't give up or ask for help unless truly stuck after exhausting multiple strategies.
+
