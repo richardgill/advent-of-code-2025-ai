@@ -1,4 +1,4 @@
-Args: $ARGUMENTS (year day)
+Args: $ARGUMENTS (day)
 
 1. Run /prep-day if input doesn't exist
 2. Run /solve-part for part 1

@@ -1,4 +1,4 @@
-Args: $ARGUMENTS (year day part)
+Args: $ARGUMENTS (day part)
 
 1. Run /prep-day if input doesn't exist
 2. Solve the part per CLAUDE.md approach (create example files, implement solution)

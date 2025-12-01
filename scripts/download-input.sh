@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-year="${1:?Usage: download-input.sh <year> <day>}"
-day="${2:?Usage: download-input.sh <year> <day>}"
+year=2025
+day="${1:?Usage: download-input.sh <day>}"
 
 day_padded=$(printf "%02d" "$day")
 

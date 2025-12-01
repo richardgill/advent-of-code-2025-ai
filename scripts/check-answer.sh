@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-year="${1:?Usage: check-answer.sh <year> <day> <part> <answer>}"
-day="${2:?Usage: check-answer.sh <year> <day> <part> <answer>}"
-part="${3:?Usage: check-answer.sh <year> <day> <part> <answer>}"
-answer="${4:?Usage: check-answer.sh <year> <day> <part> <answer>}"
+year=2025
+day="${1:?Usage: check-answer.sh <day> <part> <answer>}"
+part="${2:?Usage: check-answer.sh <day> <part> <answer>}"
+answer="${3:?Usage: check-answer.sh <day> <part> <answer>}"
 
 # Rate limiting: 1 minute between submissions
 lockfile="/tmp/aoc-submit-ratelimit"
