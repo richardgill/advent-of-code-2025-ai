@@ -1,45 +1,39 @@
 # Advent of Code 2025 With AI
 
-## Structure
+An experiment in using Claude Code (AI) to solve Advent of Code 2025 puzzles autonomously.
 
-```
-src/
-├── lib/
-│   └── utils.ts              # Shared utilities
-└── days/
-    ├── 01.1/
-    │   ├── index.ts          # Solution
-    │   ├── index.test.ts     # Tests
-    │   └── data/
-    │       ├── input.txt     # Puzzle input
-    │       ├── example1.txt  # Example from problem
-    │       └── example2.txt
-    ├── 01.2/
-    ... (through 12.2)
-```
+## How It Works
 
-## Usage
+This project uses [Claude Code](https://docs.anthropic.com/en/docs/claude-code) with custom slash commands to solve AoC puzzles.
 
-```bash
-bun install
-```
+The AI interacts with problems through 3 scripts:
 
-```bash
-# Run a solution
-bun src/days/01.1/index.ts
+- `./scripts/read-puzzle.sh` - fetch the puzzle description (answers omitted)
+- `./scripts/download-input.sh` - fetch the problem input
+- `./scripts/check-answer.sh` - check solution (throttled to once per minute)
 
-# With hot reload while developing
-bun --hot src/days/01.1/index.ts
+To minimize cheating, the agent cannot read `scripts/*` or this README, and doesn't know about the underlying `aoc` CLI.
 
-# Run tests for a specific day
-bun test src/days/01.1/
+## Commands
 
-# Watch tests for a specific day
-bun test --watch src/days/01.1/
+See [.claude/commands/](.claude/commands/) for command definitions.
 
-# Run all tests
-bun test
+### Prompt for `/solve-day <year> <day>` command
 
-# Commit without running hooks
-git commit --no-verify
-```
+1. **Prep** (if input doesn't exist)
+   - `./scripts/download-input.sh <year> <day>`
+   - `./scripts/read-puzzle.sh <year> <day>`
+
+2. **Solve Part 1**
+   - Create example files from puzzle examples
+   - Implement solution
+   - `./scripts/check-answer.sh <year> <day> 1 <answer>`
+   - Review solution for readability
+   - `bun local-ci` and fix issues
+
+3. **Solve Part 2**
+   - Create example files from puzzle examples
+   - Implement solution
+   - `./scripts/check-answer.sh <year> <day> 2 <answer>`
+   - Review solution for readability
+   - `bun local-ci` and fix issues
