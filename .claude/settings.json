@@ -1,6 +1,11 @@
 {
   "permissions": {
-    "deny": ["Read(./scripts/**)", "Read(./mise.toml)"],
-    "allow": ["Bash(./scripts/*)"]
+    "deny": ["Read(./scripts/**)", "Read(./mise.toml)", "Bash(aoc:*)"],
+    "allow": [
+      "Bash(./scripts/*)",
+      "Bash(./scripts/submit-answer.sh:*)",
+      "Bash(./scripts/read-puzzle.sh:*)",
+      "Bash(./scripts/download-input.sh:*)"
+    ]
   }
 }
