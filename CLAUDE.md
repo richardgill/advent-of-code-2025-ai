@@ -19,14 +19,11 @@ Problems: https://adventofcode.com/2025/day/{day}. Read the problem first. Solve
 Download puzzles and submit answers via `aoc` (installed via mise).
 
 ```bash
-# Read puzzle directly in terminal (preferred - no .md file needed)
-aoc read -d 1 -y 2025
+# Read puzzle directly in terminal
+./scripts/read-puzzle.sh 2025 1
 
-# Download input only
-aoc download -d 1 -y 2025 --input-only -i src/days/01.1/data/input.txt
-
-# After completing part 1, copy input to part 2 folder
-cp src/days/01.1/data/input.txt src/days/01.2/data/input.txt
+# Download input to both part 1 and part 2 folders
+./scripts/download-input.sh 2025 1
 
 # Submit answer (part 1 or 2)
 aoc submit -d 1 -y 2025 1 <answer>

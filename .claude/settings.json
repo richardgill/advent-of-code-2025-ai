@@ -1,0 +1,6 @@
+{
+  "permissions": {
+    "deny": ["Read(./scripts/**)", "Read(./mise.toml)"],
+    "allow": ["Bash(./scripts/*)"]
+  }
+}
