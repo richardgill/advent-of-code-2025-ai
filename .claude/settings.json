@@ -10,7 +10,8 @@
       "Bash(./scripts/*)",
       "Bash(./scripts/check-answer.sh:*)",
       "Bash(./scripts/read-puzzle.sh:*)",
-      "Bash(./scripts/download-input.sh:*)"
+      "Bash(./scripts/download-input.sh:*)",
+      "SlashCommand(/prep-day:*)"
     ]
   }
 }
