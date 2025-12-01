@@ -18,7 +18,7 @@ To minimize cheating, the agent cannot read `scripts/*` or this README, and does
 
 See [.claude/commands/](.claude/commands/) for command definitions.
 
-### Prompt for `/solve-day <year> <day>` command
+### Prompt for `/solve-day <day>` command
 
 1. **Prep** (if input doesn't exist)
    - `./scripts/download-input.sh <year> <day>`
