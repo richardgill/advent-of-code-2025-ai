@@ -1,5 +1,5 @@
 Args: $ARGUMENTS (day)
 
-1. Run /prep-day if input doesn't exist
-2. Run /solve-part for part 1
-3. Run /solve-part for part 2
+1. Use the SlashCommand tool to invoke `/prep-day $ARGUMENTS` if input doesn't exist
+2. Use the SlashCommand tool to invoke `/solve-part $ARGUMENTS.1`
+3. Use the SlashCommand tool to invoke `/solve-part $ARGUMENTS.2`
