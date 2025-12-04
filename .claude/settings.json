@@ -11,10 +11,10 @@
       "Bash(./scripts/check-answer.sh:*)",
       "Bash(./scripts/read-puzzle.sh:*)",
       "Bash(./scripts/download-input.sh:*)",
+      "SlashCommand(/solve-day:*)",
       "SlashCommand(/prep-day:*)",
       "SlashCommand(/solve-part:*)",
-      "SlashCommand(/solve-day:*)",
-      "SlashCommand(/review-day:*)"
+      "SlashCommand(/review-part:*)"
     ]
   }
 }
