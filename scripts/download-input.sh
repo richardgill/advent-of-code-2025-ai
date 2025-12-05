@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-year=2025
-day="${1:?Usage: download-input.sh <day>}"
+year="${AOC_YEAR:-2025}"
+day="${1:?Usage: download-input.sh <day> <part>}"
+part="${2:?Usage: download-input.sh <day> <part>}"
 
 day_padded=$(printf "%02d" "$day")
+target_dir="src/days/${day_padded}.${part}/data"
 
-mkdir -p "src/days/${day_padded}.1/data"
-mkdir -p "src/days/${day_padded}.2/data"
+mkdir -p "$target_dir"
 
-aoc download -y "$year" -d "$day" --input-only -o -i "src/days/${day_padded}.1/data/input.txt"
-cp "src/days/${day_padded}.1/data/input.txt" "src/days/${day_padded}.2/data/input.txt"
+aoc download -y "$year" -d "$day" --input-only -o -i "${target_dir}/input.txt"
 
-echo "Downloaded input to src/days/${day_padded}.1/data/input.txt and src/days/${day_padded}.2/data/input.txt"
+echo "Downloaded input to ${target_dir}/input.txt"

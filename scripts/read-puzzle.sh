@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-year=2025
+year="${AOC_YEAR:-2025}"
 day="${1:?Usage: read-puzzle.sh <day> <part>}"
 part="${2:?Usage: read-puzzle.sh <day> <part>}"
 
