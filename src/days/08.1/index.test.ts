@@ -3,6 +3,6 @@ import { solve } from "./index";
 
 const example1 = await Bun.file(import.meta.dir + "/data/example1.txt").text();
 
-test("dummy test", () => {
-  expect(solve(example1)).toBeTruthy();
+test("example 1 - 10 connections", () => {
+  expect(solve(example1, 10)).toBe(40);
 });
