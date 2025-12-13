@@ -2,6 +2,7 @@
 
 An experiment in using Claude Code (AI) to solve Advent of Code 2025 puzzles autonomously.
 
+
 ## How It Works
 
 This project uses [Claude Code](https://docs.anthropic.com/en/docs/claude-code) with custom slash commands to solve AoC puzzles.
@@ -13,6 +14,16 @@ The AI interacts with problems through 3 scripts:
 - `./scripts/check-answer.sh` - check solution (throttled to once per minute)
 
 To minimize cheating, the agent cannot read `scripts/*` or this README, and doesn't know about the underlying `aoc` CLI.
+
+## Setup
+
+Create a `.env` file with your Advent of Code session cookie:
+
+```
+AOC_SESSION=your_session_cookie_here
+```
+
+Get your session cookie from the `session` cookie from the chrome dev tools at adventofcode.com after logging in.
 
 ## Commands
 

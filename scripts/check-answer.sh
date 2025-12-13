@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+# Load .env if it exists
+if [[ -f .env ]]; then
+  export $(grep -v '^#' .env | xargs)
+fi
+
 year="${AOC_YEAR:-2025}"
 day="${1:?Usage: check-answer.sh <day> <part> [answer]}"
 part="${2:?Usage: check-answer.sh <day> <part> [answer]}"
