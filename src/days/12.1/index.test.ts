@@ -1,8 +1,8 @@
 import { expect, test } from "bun:test";
 import { solve } from "./index";
 
-const example1 = await Bun.file(import.meta.dir + "/data/example1.txt").text();
+const input = await Bun.file(import.meta.dir + "/data/input.txt").text();
 
-test("dummy test", () => {
-  expect(solve(example1)).toBeTruthy();
+test("solves puzzle input", () => {
+  expect(solve(input)).toBe(408);
 });
