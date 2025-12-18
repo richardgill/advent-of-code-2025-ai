@@ -12,7 +12,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # Stop hook that auto-exits Claude 2s after task completion (kills parent process)
 SETTINGS='{"hooks":{"Stop":[{"hooks":[{"type":"command","command":"sleep 2; kill $PPID"}]}]}}'
 
-for day in $(seq $START_DAY 1); do
+for day in $(seq $START_DAY 12); do
   echo "=== Solving Day $day ==="
   day_padded=$(printf "%02d" "$day")
   claude --settings "$SETTINGS" "/solve-day $day"
