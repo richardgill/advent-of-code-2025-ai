@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "deny": [
+    ],
+    "allow": [
+      "Bash(./scripts/*)",
+      "Bash(./scripts/check-answer.sh:*)",
+      "Bash(./scripts/read-puzzle.sh:*)",
+      "Bash(./scripts/download-input.sh:*)",
+      "SlashCommand(/solve-day:*)",
+      "SlashCommand(/prep-day:*)",
+      "SlashCommand(/solve-part:*)",
+      "SlashCommand(/review-part:*)"
+    ]
+  }
+}
