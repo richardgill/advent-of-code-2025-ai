@@ -15,7 +15,7 @@ SETTINGS='{"hooks":{"Stop":[{"hooks":[{"type":"command","command":"sleep 2; kill
 for day in $(seq $START_DAY 12); do
   echo "=== Solving Day $day ==="
   day_padded=$(printf "%02d" "$day")
-  claude --settings "$SETTINGS" "/solve-day $day"
+  claude --settings "$SETTINGS" "/solve-day $day" || true
 
   "$SCRIPT_DIR/process-conversation.sh" "src/days/${day_padded}/conversation.md" "$day_padded"
   echo ""
