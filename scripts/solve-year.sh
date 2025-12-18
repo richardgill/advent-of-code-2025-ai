@@ -17,6 +17,6 @@ for day in $(seq $START_DAY 12); do
   day_padded=$(printf "%02d" "$day")
   claude --settings "$SETTINGS" "/solve-day $day" || true
 
-  "$SCRIPT_DIR/process-conversation.sh" "src/days/${day_padded}/conversation.md" "$day_padded"
+  "$SCRIPT_DIR/process-conversation.sh" "src/days/${day_padded}.2/conversation.md" "$day_padded"
   echo ""
 done
