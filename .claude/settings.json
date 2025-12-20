@@ -22,7 +22,8 @@
       "SlashCommand(/solve-day:*)",
       "SlashCommand(/prep-day:*)",
       "SlashCommand(/solve-part:*)",
-      "SlashCommand(/review-part:*)"
+      "SlashCommand(/review-part:*)",
+      "Read(/tmp)"
     ]
   }
 }
