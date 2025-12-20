@@ -1,14 +1,17 @@
 #!/usr/bin/env bash
 # Process Claude Code JSONL session file into human-readable markdown
-# Usage: process-conversation.sh <output_file> <day> [jsonl_file]
-# If jsonl_file is omitted, uses the most recent session from the project directory
+# Usage: process-conversation.sh <output_folder> <day>
+# Uses the most recent session from the project directory
 set -eu
 
 source "$(dirname "${BASH_SOURCE[0]}")/lib.sh"
 
-output_file="${1:?Usage: $0 <output_file> <day> [jsonl_file]}"
-day="${2:?Usage: $0 <output_file> <day> [jsonl_file]}"
-jsonl_file="${3:-$(get_latest_session_file)}"
+output_folder="${1:?Usage: $0 <output_folder> <day>}"
+day="${2:?Usage: $0 <output_folder> <day>}"
+jsonl_file="$(get_latest_session_file)"
+output_file="$output_folder/conversation.md"
+
+mkdir -p "$output_folder"
 
 # Get first and last timestamps for duration
 timestamps=$(jq -rs '[.[] | select(.timestamp) | .timestamp]' "$jsonl_file")
@@ -44,8 +47,8 @@ assistant_msgs=$(jq -s '[.[] | select(.type == "assistant")] | length' "$jsonl_f
 tool_calls=$(jq -s '[.[] | select(.type == "assistant") | .message.content[]? | select(.type == "tool_use")] | length' "$jsonl_file")
 turns=$user_msgs
 
-# Write stats JSON adjacent to output file
-stats_file="$(dirname "$output_file")/stats.json"
+# Write stats JSON to output folder
+stats_file="$output_folder/stats.json"
 total_tokens=$((input_tokens + output_tokens))
 stats_json=$(jq -n \
   --arg day "$day" \
@@ -77,7 +80,7 @@ stats_json=$(jq -n \
 echo "$stats_json" > "$stats_file"
 
 # Append to project-level stats.jsonl
-stats_jsonl="$(dirname "$output_file")/../stats.jsonl"
+stats_jsonl="$(dirname "$output_folder")/stats.jsonl"
 echo "$stats_json" >> "$stats_jsonl"
 
 {
@@ -133,4 +136,8 @@ echo "$stats_json" >> "$stats_jsonl"
   ' "$jsonl_file" | sed '/<system-reminder>/,/<\/system-reminder>/d'
 } > "$output_file"
 
-echo "Wrote $output_file, $stats_file, and appended to $stats_jsonl"
+# Copy the JSONL session file to the output folder
+session_id=$(basename "$jsonl_file")
+cp "$jsonl_file" "$output_folder/$session_id"
+
+echo "Wrote $output_file, $stats_file, $output_folder/$session_id, and appended to $stats_jsonl"
