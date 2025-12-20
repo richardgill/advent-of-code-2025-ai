@@ -10,7 +10,8 @@ DAY=$1
 FILENAME=$2
 CONTENT=$3
 
-DEST="src/days/${DAY}/${FILENAME}"
-mkdir -p "src/days/${DAY}"
+DAY_PADDED=$(printf "%02d" "$DAY")
+DEST="src/days/${DAY_PADDED}/${FILENAME}"
+mkdir -p "src/days/${DAY_PADDED}"
 printf '%s\n' "$CONTENT" > "$DEST"
 echo "Saved to $DEST"
