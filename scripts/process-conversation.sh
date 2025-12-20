@@ -19,6 +19,19 @@ start_epoch=$(date -d "$first_ts" +%s 2>/dev/null || date -j -f "%Y-%m-%dT%H:%M:
 end_epoch=$(date -d "$last_ts" +%s 2>/dev/null || date -j -f "%Y-%m-%dT%H:%M:%S" "${last_ts%%.*}" +%s)
 duration_secs=$((end_epoch - start_epoch))
 
+# Calculate active time (excludes gaps > 60 seconds, e.g. permission waits)
+GAP_THRESHOLD=60
+active_secs=$(jq -rs '
+  [.[] | select(.timestamp) | .timestamp | sub("\\.[0-9]+Z$"; "Z")] | sort | unique |
+  . as $ts |
+  reduce range(1; length) as $i (0;
+    . + (
+      (($ts[$i] | fromdateiso8601) - ($ts[$i-1] | fromdateiso8601)) as $gap |
+      if $gap <= '"$GAP_THRESHOLD"' then $gap else 0 end
+    )
+  )
+' "$jsonl_file")
+
 # Sum token usage from assistant messages
 input_tokens=$(jq -s '[.[] | select(.type == "assistant") | .message.usage.input_tokens // 0] | add' "$jsonl_file")
 output_tokens=$(jq -s '[.[] | select(.type == "assistant") | .message.usage.output_tokens // 0] | add' "$jsonl_file")
@@ -37,6 +50,7 @@ total_tokens=$((input_tokens + output_tokens))
 stats_json=$(jq -n \
   --arg day "$day" \
   --argjson duration_secs "$duration_secs" \
+  --argjson active_secs "$active_secs" \
   --argjson user_msgs "$user_msgs" \
   --argjson assistant_msgs "$assistant_msgs" \
   --argjson tool_calls "$tool_calls" \
@@ -49,6 +63,7 @@ stats_json=$(jq -n \
   '{
     day: $day,
     duration_secs: $duration_secs,
+    active_secs: $active_secs,
     user_msgs: $user_msgs,
     assistant_msgs: $assistant_msgs,
     tool_calls: $tool_calls,
