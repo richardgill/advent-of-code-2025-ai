@@ -80,7 +80,7 @@ stats_json=$(jq -n \
 echo "$stats_json" > "$stats_file"
 
 # Append to project-level stats.jsonl
-stats_jsonl="$(dirname "$output_folder")/stats.jsonl"
+stats_jsonl="$(dirname "$output_folder")/../stats.jsonl"
 echo "$stats_json" >> "$stats_jsonl"
 
 {
