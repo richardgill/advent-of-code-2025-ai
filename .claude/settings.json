@@ -1,6 +1,12 @@
 {
   "permissions": {
     "deny": [
+      "Read(README.md)",
+      "Read(./scripts/**)",
+      "Read(./mise.toml)",
+      "WebSearch",
+      "WebFetch",
+      "Bash(aoc:*)"
     ],
     "allow": [
       "Bash(./scripts/*)",
