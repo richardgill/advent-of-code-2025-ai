@@ -10,7 +10,7 @@ DAY=$1
 FILENAME=$2
 CONTENT=$3
 
-DEST="src/days/${DAY}/conversation/${FILENAME}"
-mkdir -p "src/days/${DAY}/conversation"
+DEST="src/days/${DAY}/${FILENAME}"
+mkdir -p "src/days/${DAY}"
 printf '%s\n' "$CONTENT" > "$DEST"
 echo "Saved to $DEST"

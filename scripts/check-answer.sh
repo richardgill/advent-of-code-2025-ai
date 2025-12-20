@@ -13,7 +13,7 @@ answer="${3:-}"
 
 # Zero-pad day for solution path
 day_padded=$(printf "%02d" "$day")
-solution_path="src/days/${day_padded}.${part}/index.ts"
+solution_path="src/days/${day_padded}/part-${part}/index.ts"
 
 # If answer not provided, run the solution code
 if [[ -z "$answer" ]]; then

@@ -11,7 +11,7 @@ day="${1:?Usage: download-input.sh <day> <part>}"
 part="${2:?Usage: download-input.sh <day> <part>}"
 
 day_padded=$(printf "%02d" "$day")
-target_dir="src/days/${day_padded}.${part}/data"
+target_dir="src/days/${day_padded}/part-${part}/data"
 
 mkdir -p "$target_dir"
 

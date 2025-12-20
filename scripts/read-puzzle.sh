@@ -11,7 +11,7 @@ day="${1:?Usage: read-puzzle.sh <day> <part>}"
 part="${2:?Usage: read-puzzle.sh <day> <part>}"
 
 padded_day=$(printf "%02d" "$day")
-data_dir="src/days/${padded_day}.${part}/data"
+data_dir="src/days/${padded_day}/part-${part}/data"
 
 puzzle=$(aoc --session-file aoc-session.txt read -y "$year" -d "$day" | grep -v "Your puzzle answer was" | grep -v "Both parts of this puzzle are complete")
 

@@ -12,7 +12,7 @@ DAY=$1
 CONVERSATION_FILE=$(get_latest_session_file)
 SESSION_ID=$(basename "$CONVERSATION_FILE" .jsonl)
 
-DAY_DIR="src/days/${DAY}/conversation"
+DAY_DIR="src/days/${DAY}"
 mkdir -p "$DAY_DIR"
 DEST="$DAY_DIR/$SESSION_ID.jsonl"
 cp "$CONVERSATION_FILE" "$DEST"
