@@ -87,7 +87,7 @@ echo "$stats_json" >> "$stats_jsonl"
   echo "# Conversation"
   echo ""
   printf "**Duration:** %dm %ds | **Messages:** %d user, %d assistant | **Tokens:** %d in, %d out (cache: %d read, %d created)\n\n" \
-    $((duration_secs / 60)) $((duration_secs % 60)) \
+    $((active_secs / 60)) $((active_secs % 60)) \
     "$user_msgs" "$assistant_msgs" \
     "$input_tokens" "$output_tokens" "$cache_read" "$cache_create"
   echo "---"
