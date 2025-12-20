@@ -1,0 +1,13 @@
+{
+  "day": "11",
+  "duration_secs": 254,
+  "user_msgs": 52,
+  "assistant_msgs": 62,
+  "tool_calls": 44,
+  "turns": 52,
+  "input_tokens": 5,
+  "output_tokens": 6833,
+  "total_tokens": 6838,
+  "cache_read_tokens": 2587438,
+  "cache_create_tokens": 88782
+}
