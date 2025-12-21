@@ -1,10 +1,7 @@
-import { lines } from "../../../lib/utils";
+import { solvePuzzle } from "../part-1/index";
 
 const input = await Bun.file(import.meta.dir + "/data/input.txt").text();
 
-export const solve = (input: string) => {
-  const data = lines(input);
-  return data.length;
-};
+export const solve = (input: string): number => solvePuzzle(input);
 
 console.log(solve(input));
