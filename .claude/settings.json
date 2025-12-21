@@ -1,9 +1,4 @@
 {
-  "env": {
-    "DISABLE_PROMPT_CACHING_SONNET": "1",
-    "DISABLE_PROMPT_CACHING_HAIKU": "1",
-    "DISABLE_PROMPT_CACHING_OPUS": "1"
-  },
   "permissions": {
 
     "deny": [
